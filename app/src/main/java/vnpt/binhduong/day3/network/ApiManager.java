@@ -9,10 +9,13 @@ import vnpt.binhduong.day3.model.Item;
 public interface ApiManager {
 
     String SERVER_URL = "https://api-demo-anhth.herokuapp.com/";
+    public static String BASE_URL = "http://dataservice.accuweather.com";
 
     @GET("data.json")
     Call<Item> getItemData();
 
-    @GET("data.json")
-    Call<List> getListData();
+    @GET("datas.json")
+    Call<List<Item>> getListData();
+    
+
 }

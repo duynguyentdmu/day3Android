@@ -1,4 +1,4 @@
-package vnpt.binhduong.day3;
+package vnpt.binhduong.day3.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +15,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import vnpt.binhduong.day3.ApiManager;
+import vnpt.binhduong.day3.R;
 import vnpt.binhduong.day3.model.Item;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView( R.layout.activity_main);
         tvTitle = findViewById(R.id.tvTitle);
         tvContent = findViewById(R.id.tvContent);
         tvDate = findViewById(R.id.tvDate);
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 tvDate.setText(model.getDate());
                 tvTitle.setText(model.getTitle());
                 Glide.with(MainActivity.this).load(model.getImage()).into(ivCover);
+
             }
 
             @Override
