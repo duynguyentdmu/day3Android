@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,9 +22,6 @@ import vnpt.binhduong.day3.apdater.NewsAdapter;
 import vnpt.binhduong.day3.interfaces.NewsOnClick;
 import vnpt.binhduong.day3.model.Item;
 import vnpt.binhduong.day3.ApiManager;
-
-
-
 
 
 public class ListNewsActivity extends AppCompatActivity {
@@ -52,15 +50,16 @@ public class ListNewsActivity extends AppCompatActivity {
         rvListNews.setLayoutManager( layoutManager );
         rvListNews.setAdapter( adapter );
 
-        adapter.setiOnClick(new NewsOnClick() {
+        adapter.setiOnClick( new NewsOnClick() {
             @Override
             public void onClickItem(int position) {
-                Item model = listData.get(position);
-                Intent intent = new Intent(ListNewsActivity.this, DetailActivity.class);
-                intent.putExtra("URL", model.getContent().getUrl());
-                startActivity(intent);
+                Item model = listData.get( position );
+                Intent intent = new Intent( ListNewsActivity.this, DetailActivity.class );
+                intent.putExtra( "URL", model.getContent().getUrl() );
+                intent.putExtra ( "ITEM", model );
+                startActivity( intent );
             }
-        });
+        } );
     }
 
     private void getListData() {

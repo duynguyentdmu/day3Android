@@ -1,6 +1,8 @@
 package vnpt.binhduong.day3.model;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
     private int id;
     private String date;
     private String title;
